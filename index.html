@@ -33,12 +33,19 @@
                 return file.name.endsWith('.mp4')
             })
 
-            file.appendTo('div', { autoplay: true, controls: false })
+            file.appendTo(
+                'div',
+                { autoplay: true, controls: false },
+                function (err, elem) {
+                    if (err) throw err // file failed to download or display in the DOM
+                    console.log('New DOM node with the content', elem)
+                    elem.className = "video";
+                })
         })
     </script>
 </body>
 <style>
-    .torrent_div {
+    .video {
         position: fixed;
         right: 0;
         bottom: 0;
