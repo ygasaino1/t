@@ -34,7 +34,7 @@
             })
 
             file.appendTo(
-                'div',
+                'body',
                 { autoplay: true, controls: false },
                 function (err, elem) {
                     if (err) throw err // file failed to download or display in the DOM
@@ -45,8 +45,12 @@
     </script>
 </body>
 <style>
+    body, html {
+    height: 100%;
+    }
+
     .video {
-        min-height: 100%;
+    height: 100%;
     }
 </style>
 
