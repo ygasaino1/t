@@ -3,9 +3,6 @@
 <html>
 
 <body>
-    <div id="torrent_div" class=video>
-        <!-- torrent plays here-->
-    </div>
     <!-- Include the latest version of WebTorrent -->
     <script src="https://cdn.jsdelivr.net/npm/webtorrent@latest/webtorrent.min.js"></script>
 
@@ -34,7 +31,7 @@
             })
 
             file.appendTo(
-                'div',
+                'body',
                 { autoplay: true, controls: false },
                 function (err, elem) {
                     if (err) throw err // file failed to download or display in the DOM
