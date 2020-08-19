@@ -37,6 +37,11 @@
                     if (err) throw err // file failed to download or display in the DOM
                     console.log('New DOM node with the content', elem)
                     elem.className = "video";
+                    var time = GetURLParameter('t')
+                    if(time != undefined)
+                    {
+                        elem.currentTime = time;
+                    }
                 })
         })
     </script>
