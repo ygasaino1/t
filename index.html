@@ -1,10 +1,14 @@
 <!doctype html>
 <!-- LOADING TORRENT MP4 VIDEO USING ?m[=] param -->
 <html>
+
 <body>
+    <div id="torrent_div">
+        <!-- torrent plays here-->
+    </div>
     <!-- Include the latest version of WebTorrent -->
     <script src="https://cdn.jsdelivr.net/npm/webtorrent@latest/webtorrent.min.js"></script>
-    
+
     <script>
         function GetURLParameter(sParam) {
             var sPageURL = window.location.search.substring(1);
@@ -29,9 +33,18 @@
                 return file.name.endsWith('.mp4')
             })
 
-            file.appendTo('body', { autoplay: true, controls: false })
+            file.appendTo('div', { autoplay: true, controls: false })
         })
     </script>
 </body>
+<style>
+    .torrent_div {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        min-width: 100%;
+        min-height: 100%;
+    }
+</style>
 
 </html>
