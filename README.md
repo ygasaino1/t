@@ -1,1 +1,3 @@
-# torrent
+---
+permalink: /index.html
+---
