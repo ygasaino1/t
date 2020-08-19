@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+
+<body>
+    <!-- Include the latest version of WebTorrent -->
+    <script src="https://cdn.jsdelivr.net/npm/webtorrent@latest/webtorrent.min.js"></script>
+    
+    <script>
+        function GetURLParameter(sParam) {
+            var sPageURL = window.location.search.substring(1);
+            var sURLVariables = sPageURL.split('[&]');
+            for (var i = 0; i < sURLVariables.length; i++) {
+                var sParameterName = sURLVariables[i].split('[=]');
+                if (sParameterName[0] == sParam) {
+                    return sParameterName[1];
+                }
+            }
+        }
+    </script>
+
+    <script>
+        var client = new WebTorrent()
+        // Sintel, a free, Creative Commons movie
+        var torrentId = GetURLParameter('magnet')
+
+        client.add(torrentId, function (torrent) {
+            // Torrents can contain many files. Let's use the .mp4 file
+            var file = torrent.files.find(function (file) {
+                return file.name.endsWith('.mp4')
+            })
+
+            file.appendTo('body', { autoplay: true, controls: false })
+        })
+    </script>
+</body>
+
+</html>
